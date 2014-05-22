@@ -209,7 +209,9 @@ class MPNSToast(MPNSBase):
         root = ET.Element("{WPNotification}Notification")
         toast = ET.SubElement(root, '{WPNotification}Toast')
         self.optional_subelement(toast, '{WPNotification}Text1', 'text1', payload)
+        
         self.optional_subelement(toast, '{WPNotification}Text2', 'text2', payload)
+        self.optional_subelement(toast, '{WPNotification}Sound', 'sound', payload)
         self.optional_subelement(toast, '{WPNotification}Param', 'param', payload) # TODO: validate param (/ and length)
         return self.serialize_tree(ET.ElementTree(root))
 
